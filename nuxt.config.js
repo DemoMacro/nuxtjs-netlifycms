@@ -1,3 +1,46 @@
+const fs = require('fs');
+const path = require('path');
+
+var files = fs.readdirSync('./assets/content/blog');
+function createRoutesArray() {
+  files.forEach(function (file) {
+    var name = file.substr(0, file.lastIndexOf('.'));
+    var route = '/blog/' + name
+    routesArray.push(route)
+  });
+}
+
+
+function returnRoutes() {
+  dir.readFiles('./assets/content/blog', {
+    match: /.md$/,
+    shortName: true,
+    exclude: /^\./
+  }, function (err, content, next) {
+    if (err) throw err;
+    // console.log('content:', content);
+    next();
+  },
+    function (err, files) {
+      if (err) throw err;
+      // fileNamesArray = [];
+      files.forEach(function (file) {
+        var name = file.substr(0, file.lastIndexOf('.'));
+        var path = '/blog/' + name
+        return path
+      });
+    });
+}
+// const fs = require('fs')
+// const axios = require('axios')
+// // const _ = require('lodash')
+
+//
+function getSlugs(post, index) {
+  let slug = post.substr(0, post.lastIndexOf('.'));
+  return `/blog/${slug}`
+}
+
 export default {
   mode: 'universal',
   /*
@@ -45,15 +88,8 @@ export default {
   */
   generate: {
     routes: function () {
-      const fs = require('fs');
-      const path = require('path');
-      return fs.readdirSync('./assets/content/blog').map(file => {
-        return {
-          route: `/blog/${path.parse(file).name}`, // Return the slug
-          payload: require(`./assets/content/blog/${file}`),
-        };
-      });
-    },
+      return files.map(getSlugs)
+    }
   },
   build: {
     /*
