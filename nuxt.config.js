@@ -31,11 +31,7 @@ function returnRoutes() {
       });
     });
 }
-// const fs = require('fs')
-// const axios = require('axios')
-// // const _ = require('lodash')
 
-//
 function getSlugs(post, index) {
   let slug = post.substr(0, post.lastIndexOf('.'));
   return `/blog/${slug}`
