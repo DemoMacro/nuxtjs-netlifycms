@@ -8,8 +8,8 @@ export default {
     if (payload) return { blogPost: payload };
     else
       return {
-        blogPost: await require(`~/assets/content/blog/README.md`),
+        blogPost: await require(`~/assets/content/blog/README.md`)
       };
-  },
+  }
 };
 </script>

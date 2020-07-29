@@ -24,7 +24,7 @@ import Logo from '~/components/Logo.vue';
 
 export default {
   components: {
-    Logo,
+    Logo
   },
   head() {
     return {
@@ -33,11 +33,11 @@ export default {
           src:
             'https://cdn.jsdelivr.net/npm/netlify-identity-widget@1/build/netlify-identity-widget.min.js',
           async: true,
-          defer: true,
-        },
-      ],
+          defer: true
+        }
+      ]
     };
-  },
+  }
 };
 </script>
 

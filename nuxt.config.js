@@ -16,7 +16,7 @@ function returnRoutes() {
     {
       match: /.md$/,
       shortName: true,
-      exclude: /^\./,
+      exclude: /^\./
     },
     function (err, content, next) {
       if (err) throw err;
@@ -31,7 +31,7 @@ function returnRoutes() {
         var path = '/blog/' + name;
         return path;
       });
-    },
+    }
   );
 }
 
@@ -53,10 +53,10 @@ export default {
       {
         hid: 'description',
         name: 'description',
-        content: process.env.npm_package_description || '',
-      },
+        content: process.env.npm_package_description || ''
+      }
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
   },
   /*
    ** Customize the progress-bar color
@@ -79,7 +79,7 @@ export default {
    */
   modules: ['@nuxtjs/markdownit'],
   markdownit: {
-    injected: true,
+    injected: true
   },
   /*
    ** Build configuration
@@ -87,12 +87,12 @@ export default {
   generate: {
     routes: function () {
       return files.map(getSlugs);
-    },
+    }
   },
   build: {
     /*
      ** You can extend webpack config here
      */
-    extend(config, ctx) {},
-  },
+    extend(config, ctx) {}
+  }
 };
