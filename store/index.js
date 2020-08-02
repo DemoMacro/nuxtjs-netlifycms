@@ -9,7 +9,7 @@ export const mutations = {
 };
 
 export const actions = {
-  async nuxtServerInit({ commit }) {
+  async nuxtServerInit({commit}) {
     let files = await require.context(
       '~/assets/content/blog/',
       false,
